@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		858D17F82E910FC0008F4069 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 858D17F72E910FC0008F4069 /* Auth */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		85B3DBBF2E8B0B490011A22A /* MIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858D17F82E910FC0008F4069 /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = MIN;
 			packageProductDependencies = (
+				858D17F72E910FC0008F4069 /* Auth */,
 			);
 			productName = MIN;
 			productReference = 85B3DBBF2E8B0B490011A22A /* MIN.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 85B3DBB62E8B0B490011A22A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				858D17F62E910FC0008F4069 /* XCLocalSwiftPackageReference "MIN/Modules/Auth" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 85B3DBC02E8B0B490011A22A /* Products */;
 			projectDirPath = "";
@@ -355,6 +364,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		858D17F62E910FC0008F4069 /* XCLocalSwiftPackageReference "MIN/Modules/Auth" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MIN/Modules/Auth;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		858D17F72E910FC0008F4069 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Auth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 85B3DBB72E8B0B490011A22A /* Project object */;
 }
