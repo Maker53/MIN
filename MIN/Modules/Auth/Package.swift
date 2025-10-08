@@ -15,13 +15,15 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "12.3.0")
+        .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "12.3.0"),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.7.1"))
     ],
     targets: [
         .target(
             name: "Auth",
             dependencies: [
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                "SnapKit"
             ],
             path: "Sources"
         ),
