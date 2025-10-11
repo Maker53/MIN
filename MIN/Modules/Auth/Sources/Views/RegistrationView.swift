@@ -7,6 +7,7 @@ public protocol DisplaysRegistrationView: UIView { }
 
 @MainActor
 public protocol RegistrationViewDelegate: AnyObject {
+    func textFieldDidChange(_ textFieldInput: AuthDataFlow.TextFieldInput)
     func registerButtonDidTapped()
 }
 
@@ -210,6 +211,19 @@ extension RegistrationView: UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case emailTextField:
+            delegate?.textFieldDidChange(.email(textField.text))
+        case passwordTextField:
+            delegate?.textFieldDidChange(.password(textField.text))
+        case repeatPasswordTextField:
+            delegate?.textFieldDidChange(.repeatPassword(textField.text))
+        default:
+            break
+        }
     }
 }
 
