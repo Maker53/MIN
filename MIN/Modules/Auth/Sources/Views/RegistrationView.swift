@@ -169,6 +169,9 @@ public final class RegistrationView: UIView {
         addSubviews()
         setupConstraints()
         backgroundColor = .systemBackground
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        repeatPasswordTextField.delegate = self
     }
     
     @available(*, unavailable)
@@ -180,6 +183,26 @@ public final class RegistrationView: UIView {
 // MARK: DisplaysRegistrationView
 
 extension RegistrationView: DisplaysRegistrationView { }
+
+// MARK: UITextFieldDelegate
+
+extension RegistrationView: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        case passwordTextField:
+            repeatPasswordTextField.becomeFirstResponder()
+        case repeatPasswordTextField:
+            repeatPasswordTextField.resignFirstResponder()
+        default:
+            break
+        }
+        
+        return true
+    }
+}
+
 
 // MARK: Private
 
