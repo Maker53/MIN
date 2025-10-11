@@ -172,6 +172,7 @@ public final class RegistrationView: UIView {
         super.init(frame: frame)
         addSubviews()
         setupConstraints()
+        setupGesture()
         
         backgroundColor = .systemBackground
         
@@ -218,6 +219,11 @@ private extension RegistrationView {
     @objc
     func registerButtonDidTapped() {
         delegate?.registerButtonDidTapped()
+    }
+
+    @objc
+    func dismissKeyboard() {
+        endEditing(true)
     }
 }
 
@@ -319,5 +325,11 @@ private extension RegistrationView {
             $0.left.right.equalToSuperview().inset(20)
             $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(20)
         }
+    }
+    
+    func setupGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        addGestureRecognizer(tapGesture)
     }
 }
