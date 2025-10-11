@@ -5,6 +5,11 @@ import SnapKit
 
 public protocol DisplaysRegistrationView: UIView { }
 
+@MainActor
+public protocol RegistrationViewDelegate: AnyObject {
+    func registerButtonDidTapped()
+}
+
 public final class RegistrationView: UIView {
     // MARK: Views
     
@@ -159,8 +164,7 @@ public final class RegistrationView: UIView {
     
     // MARK: Properties
     
-    // TODO: Вынести в отдельный KeyboardTracker и закрыть протоколом.
-    private let notificationCenter = NotificationCenter()
+    weak var delegate: RegistrationViewDelegate?
     
     // MARK: Lifecycle
     
@@ -168,10 +172,14 @@ public final class RegistrationView: UIView {
         super.init(frame: frame)
         addSubviews()
         setupConstraints()
+        
         backgroundColor = .systemBackground
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         repeatPasswordTextField.delegate = self
+        
+        registerButton.addTarget(self, action: #selector(registerButtonDidTapped), for: .touchUpInside)
     }
     
     @available(*, unavailable)
@@ -195,11 +203,21 @@ extension RegistrationView: UITextFieldDelegate {
             repeatPasswordTextField.becomeFirstResponder()
         case repeatPasswordTextField:
             repeatPasswordTextField.resignFirstResponder()
+            registerButtonDidTapped()
         default:
             break
         }
         
         return true
+    }
+}
+
+// MARK: Actions
+
+private extension RegistrationView {
+    @objc
+    func registerButtonDidTapped() {
+        delegate?.registerButtonDidTapped()
     }
 }
 
