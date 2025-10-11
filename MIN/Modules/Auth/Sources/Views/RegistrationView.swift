@@ -41,7 +41,7 @@ public final class RegistrationView: UIView {
     
     private let separatorView1: UIView = {
         let view = UIView()
-        view.backgroundColor = .secondaryLabel
+        view.backgroundColor = .tertiaryLabel
         return view
     }()
     
@@ -62,7 +62,7 @@ public final class RegistrationView: UIView {
     
     private let separatorView2: UIView = {
         let view = UIView()
-        view.backgroundColor = .secondaryLabel
+        view.backgroundColor = .tertiaryLabel
         return view
     }()
     
@@ -82,7 +82,7 @@ public final class RegistrationView: UIView {
     
     private let separatorView3: UIView = {
         let view = UIView()
-        view.backgroundColor = .secondaryLabel
+        view.backgroundColor = .tertiaryLabel
         return view
     }()
     
@@ -102,7 +102,7 @@ public final class RegistrationView: UIView {
     
     private let separatorView4: UIView = {
         let view = UIView()
-        view.backgroundColor = .secondaryLabel
+        view.backgroundColor = .tertiaryLabel
         return view
     }()
     
@@ -229,7 +229,7 @@ private extension RegistrationView {
         }
         
         separatorView1.snp.makeConstraints {
-            $0.height.equalTo(0.5)
+            $0.height.equalTo(1)
             $0.top.equalTo(subtitleLabel.snp.bottom).offset(30)
             $0.left.right.equalToSuperview().inset(20)
         }
@@ -240,7 +240,7 @@ private extension RegistrationView {
         }
         
         separatorView2.snp.makeConstraints {
-            $0.height.equalTo(0.5)
+            $0.height.equalTo(1)
             $0.top.equalTo(emailTextField.snp.bottom).offset(16)
             $0.left.right.equalToSuperview().inset(20)
         }
@@ -251,7 +251,7 @@ private extension RegistrationView {
         }
         
         separatorView3.snp.makeConstraints {
-            $0.height.equalTo(0.5)
+            $0.height.equalTo(1)
             $0.top.equalTo(passwordTextField.snp.bottom).offset(16)
             $0.left.right.equalToSuperview().inset(20)
         }
@@ -262,7 +262,7 @@ private extension RegistrationView {
         }
         
         separatorView4.snp.makeConstraints {
-            $0.height.equalTo(0.5)
+            $0.height.equalTo(1)
             $0.top.equalTo(repeatPasswordTextField.snp.bottom).offset(16)
             $0.left.right.equalToSuperview().inset(20)
             $0.bottom.equalToSuperview()
